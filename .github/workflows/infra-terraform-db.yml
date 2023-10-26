@@ -1,0 +1,56 @@
+name: Terraform-db
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+
+env:
+  working-directory: infra_terraform
+  ARM_CLIENT_ID: ${{secrets.TF_CLIENT_ID}}
+  ARM_CLIENT_SECRET: ${{secrets.TF_ARM_CLIENT_SECRET}}
+  ARM_SUBSCRIPTION_ID: ${{secrets.TF_SUBSCRIPTION_ID}}
+  ARM_TENANT_ID: ${{secrets.TF_TENANT_ID}}
+
+permissions:
+  id-token: write
+  contents: read
+  
+jobs:          
+  setup-terraform:
+    runs-on: ubuntu-latest
+   
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Set up Terraform
+      uses: hashicorp/setup-terraform@v1
+      with:
+        terraform_wrapper: false
+    
+    - name: Terraform Init
+      id: init
+      run: terraform init
+      working-directory: ${{env.working-directory}}
+
+    - name: Terraform Validate
+      id: validate
+      run: terraform validate
+      working-directory: ${{env.working-directory}}
+
+    - name: Terraform Plan
+      id: plan
+      run: terraform plan -no-color
+      working-directory: ${{env.working-directory}}
+
+    - name: Terraform Apply
+      id: apply
+      run: terraform apply -auto-approve
+      working-directory: ${{env.working-directory}}
+      
+    # - name: Upload Terraform state
+    #   uses: actions/upload-artifact@v2
+    #   with:
+    #     name: terraform-state
+    #     path: .terraform
