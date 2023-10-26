@@ -1,0 +1,5 @@
+resource_group_name = "tech-challenge-db"
+subscription_id     = "4390402a-430b-4504-a421-bcb3d09c4848"  
+appId               = "dda8ec04-0b9d-453a-bbb9-4ff945ad64c5"
+password            = "zLo8Q~JWRcJnO2zfmnZP18zotTseSBorsHXwacQm"
+tenant_id           = "11dbbfe2-89b8-4549-be10-cec364e59551"
