@@ -41,12 +41,12 @@ variable "mysql_flexible_server_name" {
 }
 
 variable "administrator_login" {
-  default     = "admin"
+  default     = "mysqlfs"
   description = "The db administrator login"
 }
 
 variable "administrator_password" {
-  default     = "123456"
+  default     = "H@Sh1CoR3!"
   description = "The db administrator password"
 }
 
