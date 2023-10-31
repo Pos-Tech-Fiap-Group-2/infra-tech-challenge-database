@@ -60,10 +60,6 @@ resource "azurerm_mysql_flexible_server" "default" {
   version                      = "8.0.21"
   zone                         = "1"
 
-  high_availability {
-    mode                      = "ZoneRedundant"
-    standby_availability_zone = "2"
-  }
   maintenance_window {
     day_of_week  = 0
     start_hour   = 8
