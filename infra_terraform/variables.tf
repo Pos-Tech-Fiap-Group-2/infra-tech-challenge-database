@@ -20,21 +20,6 @@ variable "virtual_network_name" {
   description = "The name of the virtual network."
 }
 
-variable "subnet_name" {
-  default     = "tech-challenge-db-subnet"
-  description = "The name of the subnet."
-}
-
-variable "private_dns_zone_name" {
-  default     = "tech-challenge-db-private-dns-zone"
-  description = "The name of the dns zone."
-}
-
-variable "private_dns_zone_virtual_network_link_name" {
-  default     = "tech-challenge-db-private-dns-zone"
-  description = "The name of the dns zone virtual network link."
-}
-
 variable "mysql_flexible_server_name" {
   default     = "tech-challenge"
   description = "The name of mysql flexible server"
@@ -51,7 +36,7 @@ variable "administrator_password" {
 }
 
 variable "mysql_flexible_server_database_name" {
-  default     = "tech-challenge-mysql-db"
+  default     = "tech_challenge"
   description = "The name of mysql flexible server database"
 }
 
