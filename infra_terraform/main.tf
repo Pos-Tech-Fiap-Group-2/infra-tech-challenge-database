@@ -21,9 +21,18 @@ resource "azurerm_mysql_flexible_server" "default" {
     start_hour   = 8
     start_minute = 0
   }
+  
   storage {
     iops    = 360
     size_gb = 20
   }
-  
 }
+
+resource "azurerm_mysql_flexible_server_firewall_rule" "db" {
+  name                = "office"
+  resource_group_name = azurerm_resource_group.rg.name
+  server_name         = azurerm_mysql_flexible_server.default.name
+  start_ip_address    = "0.0.0.0"
+  end_ip_address      = "0.0.0.0"
+}
+
