@@ -1,4 +1,5 @@
 # infra-tech-challenge-database
+Repositório com a infra necessária para criação do banco de dados na Azure via terraform. Está sendo utilizado o Azure Database for MySQL.
 
 ## Modelagem dos dados 
 
